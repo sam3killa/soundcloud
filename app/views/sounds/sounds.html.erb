@@ -1,0 +1,23 @@
+<h1> It Works! </h1>
+
+<%= puts @embed_info['html'] %>
+
+
+<!-- <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F293&show_artwork=true&client_id=8e38e03320f1b0cdde7d69fe832142c9"></iframe>
+
+
+<iframe src="https://embed.spotify.com/?uri=spotify:track:4bz7uB4edifWKJXSDxwHcs" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+ -->
+
+<p>
+
+<% @tracks.each do |track| %>
+		 <p> <%= track.title %> </p>
+		 <p> <%= track.permalink_url %> </p>
+		 <p> <%= track.uri %> </p>
+		  <br>
+
+
+		<% end %>
+
+</p>
