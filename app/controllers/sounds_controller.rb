@@ -8,6 +8,9 @@ require 'soundcloud'
 # # get 10 hottest tracks
 # @tracks = @client.get('/tracks', :limit => 10, :order => 'hotness')
 # # print each link
+
+
+
 			
 	client = SoundCloud.new({
 	  :client_id     => '8e38e03320f1b0cdde7d69fe832142c9',
@@ -28,9 +31,18 @@ require 'soundcloud'
 
 	end
 
+	def create
+
+
+
+
+	end
+
 	def sounds
 
 
+
+		
 
 	# create a client object with your app credentials
 	@client = Soundcloud.new(:client_id => '8e38e03320f1b0cdde7d69fe832142c9')
@@ -39,17 +51,39 @@ require 'soundcloud'
 	@track_url = 'http://soundcloud.com/forss/flickermood'
 	@embed_info = @client.get('/oembed', :url => @track_url)
 
+############
+############
+############
+############
 
-	# print the html for the player widget
+	@client = Soundcloud.new(:client_id => '8e38e03320f1b0cdde7d69fe832142c9')
+
+
+
+
+
+
+	if params[:q].present?
+
+
+		@tracks = @client.get('/tracks', :q => params[:q]}, :licence => 'cc-by-sa', :filter => 'downloadable', :limit => 5)
+
+
+	else
+
+		@tracks = @client.get('/tracks', :q => 'hello', :licence => 'cc-by-sa', :filter => 'downloadable', :limit => 5)
+
+
+	end
 
 
 	# # create a client object with your app credentials
-	@client = Soundcloud.new(:client_id => '8e38e03320f1b0cdde7d69fe832142c9')
 
 	# # find all sounds of buskers licensed under 'creative commons share alike'
-	@tracks = @client.get('/tracks', :q => 'buskers', :licence => 'cc-by-sa', :filter => 'downloadable')
-	# @embed_info = @client.get('/oembed', :url => @tracks)
+	
+	@track_info
 
+	
 
 	end
 
