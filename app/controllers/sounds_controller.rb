@@ -66,7 +66,7 @@ require 'soundcloud'
 	if params[:q].present?
 
 
-		@tracks = @client.get('/tracks', :q => params[:q]}, :licence => 'cc-by-sa', :filter => 'downloadable', :limit => 5)
+		@tracks = @client.get('/tracks', :q => 'blah', :licence => 'cc-by-sa', :filter => 'downloadable', :limit => 5)
 
 
 	else
