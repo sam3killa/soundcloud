@@ -1,43 +1,8 @@
-<h1> It Works! </h1>
+<% @tracks.each do |track| %>
+	<%== @client.get('/oembed', :url => track.uri)['html'] %>
+<%	end %>
 
-<%== @embed_info['html'] %>
-
-
-<br>
-<br>
-<br>
-
-
-	<%= puts '#{:q}' %>
-
-
-
-	<%= @tracks.each do |track| %>
-
-			<%== @client.get('/oembed', :url => track.uri)['html'] %>
-
-	<%	end %>
-
-
-
-	<%= form_tag "/", :method => :get do %>
-
+<%= form_tag "/", :method => :get do %>
 	<%= text_field_tag :q, params[:q], :class => "search-query" %>
 	<%= submit_tag "Find Me Movies", :class => "btn-primary" %>
-
-
-	<% end %>
-
-
-
-
-
-	
-
-
-
-
-
-	
-
-
+<% end %>
